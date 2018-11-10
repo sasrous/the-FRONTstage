@@ -11,14 +11,14 @@ class Calendar extends Component {
 		if (this.props.data.length < 1) {
 			return (
 				<ul className="calendar-wrapper">
-					<h3>Your Calendar</h3>
+					<h3>Calendar</h3>
 					<div type="text/x-template" id="blog-card">
 						<div className="card-link">
 							<article className="blog-card">
 								<div className="article-details">
 									<a href={'/lobby/'}>
 										{' '}
-										<h2 className="post-title">Add events to your Calendar</h2>
+										<h2 className="post-title">no events yet</h2>
 									</a>
 								</div>
 							</article>
@@ -29,7 +29,7 @@ class Calendar extends Component {
 		} else {
 			return (
 				<ul className="calendar-wrapper">
-					<h3>Your Calendar</h3>
+					<h3>Calendar</h3>
 					{data.map((number, id) => <CalendarEvent info={[ number ]} key={id} />)}
 				</ul>
 			);

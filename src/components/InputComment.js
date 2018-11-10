@@ -55,7 +55,7 @@ class InputComment extends Component {
 						/>
 					</div>
 					<div className="form-group">
-						<button type="submit" className="btn btn-default" value="Add">
+						<button type="submit" className="join-btn info" value="Add">
 							{' '}
 							comment{' '}
 						</button>

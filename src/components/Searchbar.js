@@ -40,7 +40,6 @@ class Searchbar extends Component {
 	render() {
 		return (
 			<div>
-				<p>search</p>
 				<div className="container-fluid">
 					<MapGL
 						ref={this.mapRef}

@@ -23,18 +23,23 @@ class ProfileCard extends Component {
 		const user = this.state.user;
 
 		return (
-			<div>
-				<div className="profileImage">
-					<img alt="profile" src={user.profilePicture} />
+			<div className="profile-card">
+				<div className="snip1336 figure">
+					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample87.jpg" alt="sample" />
+					<figcaption>
+						<img src={user.profilePicture} alt="profile-sample" className="profile" />
+						<h2> {user.username}'s profile</h2>
+						<h5>
+							<span>Name:</span> {user.name}
+						</h5>
+						<h5>
+							<span>Age:</span> {user.age}
+						</h5>
+						<p>{user.about} </p>
+					</figcaption>
 				</div>
-				<h1>{user.username}</h1>
-				<h3>Name: {user.name}</h3>
-				<h3>Age: {user.age}</h3>
-				<h3>
-					About {user.username}: {user.about}
-				</h3>
-				<h3>{user.username}'s Calendar:</h3>
-				{user.eventsJoined.length > 0 ? this.renderInfo() : <div>No events in the Calendar</div>}
+
+				<Calendar data={user.eventsJoined} />
 			</div>
 		);
 	}

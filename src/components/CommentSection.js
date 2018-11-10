@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CommentList from './CommentList';
 import InputComment from './InputComment';
 import EventApi from '../lib/event-service';
-import { add } from 'gl-matrix/src/gl-matrix/mat2d';
 
 class CommentSection extends Component {
 	state = {
@@ -30,14 +29,16 @@ class CommentSection extends Component {
 	render() {
 		if (this.state.comments) {
 			return (
-				<div>
+				<div className="comment-area">
+					<h3>Forum</h3>
 					<CommentList data={this.state.eventcomments} />
 					<InputComment user={this.state.user} event={this.state.event} getComments={this.getComments} />
 				</div>
 			);
 		} else {
 			return (
-				<div>
+				<div className="comment-area">
+					<h3>Forum</h3>
 					<p>no comments yet</p>
 					<InputComment user={this.state.user} event={this.state.event} getComments={this.getComments} />
 				</div>

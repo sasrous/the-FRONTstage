@@ -22,18 +22,32 @@ class EventDetails extends Component {
 			const { displayName, uri, location, start, venue } = this.state.data;
 			return (
 				<div>
-					<MicrolinkCard
-						apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
-						url={`${uri}`}
-						size="large"
-						className="extralarge"
-					/>
-					<h1>{displayName}</h1>
-					<h2>{start.date}</h2>
-					<h5>Venue : {venue.displayName}</h5>
-					<h5>City: {location.city}</h5>
-					<a href={uri}> More Info </a>
-					<JoinButton id={this.props.id}>JOIN</JoinButton>
+					<div className="image-wrapper">
+						<div type="text/x-template" id="blog-card">
+							<article className="blog-card blog-card-big">
+								<MicrolinkCard
+									apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
+									url={`${uri}`}
+									href={`${uri}`}
+									size="large"
+									className="extralarge"
+								/>
+
+								<div className="article-details black-background">
+									<h4 className="post-category">{start.date}</h4>
+
+									<h2 className="post-title">{displayName}</h2>
+									<p className="post-author"> {location.city}</p>
+									<p className="post-description">{venue.displayName}</p>
+									<JoinButton id={this.props.id}> JOIN</JoinButton>
+									<a className="join-btn info" href={uri}>
+										{' '}
+										More Info{' '}
+									</a>
+								</div>
+							</article>
+						</div>
+					</div>
 				</div>
 			);
 		} else {

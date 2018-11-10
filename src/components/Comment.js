@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 class Comment extends Component {
 	render() {
-		const { user, comment, timestamp, id } = this.props.info[0];
+		const { user, comment, timestamp } = this.props.info[0];
 
 		return (
 			<div>
@@ -17,7 +17,8 @@ class Comment extends Component {
 									{user.name} @ {user.username}
 								</Link>
 							</h5>
-							<p className="">{comment}</p> <span className="date sub-text">on {timestamp}</span>
+							<p className="date sub-text">{comment}</p>{' '}
+							<span className="date sub-text">on {timestamp}</span>
 						</div>
 					</li>
 				</ul>
