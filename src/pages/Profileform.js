@@ -60,7 +60,9 @@ class Profileform extends Component {
 						</div>
 						<div className="form-group">
 							<label>About:</label>
-							<input
+							<textarea
+								rows="4"
+								cols="50"
 								type="text"
 								className="form-control"
 								name="about"
@@ -86,6 +88,7 @@ class Profileform extends Component {
 								name="profilePicture"
 								value={profilePicture}
 								onChange={this.handleChange}
+								placeholder="enter a URL"
 							/>
 						</div>
 						<input type="submit" className="btn btn-primary btn-lg" value="Submit" />

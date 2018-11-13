@@ -43,7 +43,7 @@ class EventDetails extends Component {
 									<p className="post-author"> {location.city}</p>
 									<p className="post-description">{venue.displayName}</p>
 									<JoinButton id={this.props.id}> JOIN</JoinButton>
-									<a className="join-btn info" href={uri}>
+									<a className="join-btn info" href={uri} target="_blank">
 										{' '}
 										More Info{' '}
 									</a>

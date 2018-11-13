@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service';
-
+import eventApi from '../lib/event-service';
 class JoinButton extends Component {
 	state = {
 		id: this.props.id.toString(),
@@ -29,6 +29,7 @@ class JoinButton extends Component {
 	};
 	joinEvent = (event) => {
 		console.log(event);
+		eventApi.createEvent(event);
 		auth.join(event);
 		this.setState({
 			joined: true

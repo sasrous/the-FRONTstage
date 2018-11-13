@@ -15,10 +15,6 @@
 	color: white;
 }
 
-.App-link {
-	color: #61dafb;
-}
-
 .detailBox {
 	width: 320px;
 	border: 0.3px solid #bbb;
@@ -258,7 +254,7 @@ body {
 	text-decoration: none;
 }
 .blog-card:hover {
-	background-color: rgba(68, 68, 68, 0.123);
+	background-color: rgba(17, 17, 17, 0.562);
 }
 
 .post-image {
@@ -286,12 +282,9 @@ body {
 	font-weight: 700;
 	margin-right: 90px;
 }
-.post-title:hover {
-	text-decoration: none;
-	color: #fdfdfdc5;
-}
 
 .post-author {
+	color: #fdfdfdc5;
 	font-size: 15px;
 	line-height: 1;
 	margin: 1.125rem 0 1.125rem 0;
@@ -300,6 +293,7 @@ body {
 .post-description {
 	font-size: 20px;
 	padding-bottom: 10px;
+	color: #fdfdfdc5;
 }
 
 @supports (display: grid) {
@@ -471,4 +465,8 @@ body {
 }
 .notification-container {
 	top: 65px !important;
+}
+
+a:-webkit-any-link {
+	text-decoration: none !important;
 }

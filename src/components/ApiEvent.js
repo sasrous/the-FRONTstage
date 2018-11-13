@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MicrolinkCard from 'react-microlink';
-import JoinButton from './JoinButton';
+import { Link } from 'react-router-dom';
+
 class ApiEvent extends Component {
 	render() {
 		var displayName = this.props.info.displayName;
@@ -13,28 +14,16 @@ class ApiEvent extends Component {
 			displayName = this.props.info.performance[0].displayName;
 		}
 		return (
-			<div type="text/x-template" id="blog-card">
-				<article className="blog-card blog-card-small">
-					<MicrolinkCard
-						apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
-						url={uri}
-						href={`/lobby/${id}`}
-						size="large"
-					/>
-
+			<article className="blog-card blog-card-small">
+				<MicrolinkCard apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6" url={uri} size="large" />
+				<Link to={`/lobby/${id}`} type="text/x-template" id="blog-card">
 					<div className="article-details">
-						<h4 className="post-category">{date}</h4>
-						<a href={`/lobby/${id}`}>
-							{' '}
-							<h2 className="post-title">{displayName}</h2>
-						</a>
-
+						<h4 className="post-category">{date}</h4> <h2 className="post-title">{displayName}</h2>
 						<p className="post-description">at {venue}</p>
-						<JoinButton id={id}> </JoinButton>
 						<p className="post-author"> {location}</p>
 					</div>
-				</article>
-			</div>
+				</Link>
+			</article>
 		);
 	}
 }
