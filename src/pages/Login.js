@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import auth from '../lib/auth-service';
-// import { AuthConsumer } from '../components/AuthProvider';
-
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 class Login extends Component {
 	state = {
 		username: '',
@@ -17,7 +16,15 @@ class Login extends Component {
 			.then((user) => {
 				this.props.setUser(user);
 			})
-			.catch((error) => console.log(error, 'hello'));
+			.catch((error) => {
+				if (error.request.response === '{"error":"validation"}') {
+					NotificationManager.error('Error: Empty field');
+				} else if (error.request.response === '{"error":"not-found"}') {
+					NotificationManager.error('Wrong credentials');
+				} else {
+					NotificationManager.error('Oops something went wrong');
+				}
+			});
 	};
 
 	handleChange = (event) => {
@@ -29,6 +36,7 @@ class Login extends Component {
 		const { username, password } = this.state;
 		return (
 			<div className="container">
+				<NotificationContainer />
 				<div className="col-sm-6 col-sm-offset-3 container2">
 					<h1>Login</h1>
 					<form onSubmit={this.handleFormSubmit}>

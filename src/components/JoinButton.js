@@ -59,7 +59,7 @@ class JoinButton extends Component {
 						this.joinEvent({ id: this.state.id });
 					}}
 				>
-					Join
+					Follow
 				</button>
 			);
 		}

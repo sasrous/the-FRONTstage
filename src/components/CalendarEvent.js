@@ -31,31 +31,64 @@ class CalendarEvent extends Component {
 	}
 	render() {
 		const id = this.props.info;
+
 		if (this.state.uri) {
-			return (
-				<div type="text/x-template" id="blog-card">
-					<article className="blog-card blog-card-small">
-						<MicrolinkCard
-							apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
-							url={`${this.state.uri}`}
-							href={'/lobby/' + id}
-							size="large"
-						/>
+			if (this.state.data.resultsPage.results.event.type === 'Concert') {
+				const displayName = this.state.data.resultsPage.results.event.performance[0].displayName;
 
-						<div className="article-details">
-							<h4 className="post-category">{this.state.date}</h4>
-							<a href={'/lobby/' + id}>
-								{' '}
-								<h2 className="post-title">{this.state.displayName}</h2>
-							</a>
+				return (
+					<div type="text/x-template" id="blog-card">
+						<article className="blog-card blog-card-small">
+							<MicrolinkCard
+								apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
+								url={`${this.state.uri}`}
+								href={'/lobby/' + id}
+								size="large"
+							/>
 
-							<p className="post-description">{this.state.venue}</p>
-							<JoinButton id={this.state.id}> JOIN</JoinButton>
-							<p className="post-author"> {this.state.location}</p>
-						</div>
-					</article>
-				</div>
-			);
+							<div className="article-details">
+								<h4 className="post-category">{this.state.date}</h4>
+								<a href={'/lobby/' + id}>
+									{' '}
+									<h2 className="post-title">{displayName}</h2>
+								</a>
+
+								<p className="post-description">at {this.state.venue}</p>
+								<JoinButton id={this.state.id}> </JoinButton>
+								<p className="post-author"> {this.state.location}</p>
+							</div>
+						</article>
+					</div>
+				);
+			} else {
+				const displayName = this.state.displayName;
+				console.log(displayName, 'hello');
+				console.log(this.state.data);
+				return (
+					<div type="text/x-template" id="blog-card">
+						<article className="blog-card blog-card-small">
+							<MicrolinkCard
+								apiKey="0RCIGKSrMD2uIMODno7Wk6H4SLixVZqW6oWAl0f6"
+								url={`${this.state.uri}`}
+								href={'/lobby/' + id}
+								size="large"
+							/>
+
+							<div className="article-details">
+								<h4 className="post-category">{this.state.date}</h4>
+								<a href={'/lobby/' + id}>
+									{' '}
+									<h2 className="post-title">{displayName}</h2>
+								</a>
+
+								<p className="post-description">{this.state.venue}</p>
+								<JoinButton id={this.state.id}> </JoinButton>
+								<p className="post-author"> {this.state.location}</p>
+							</div>
+						</article>
+					</div>
+				);
+			}
 		} else {
 			return <p>loading</p>;
 		}

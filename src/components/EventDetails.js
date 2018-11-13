@@ -19,7 +19,10 @@ class EventDetails extends Component {
 
 	render() {
 		if (this.state) {
-			const { displayName, uri, location, start, venue } = this.state.data;
+			var { displayName, uri, location, start, venue } = this.state.data;
+			if (this.state.data.type === 'Concert') {
+				displayName = this.state.data.performance[0].displayName;
+			}
 			return (
 				<div>
 					<div className="image-wrapper">
